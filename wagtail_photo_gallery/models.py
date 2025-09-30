@@ -92,7 +92,7 @@ class Album(ClusterableModel):
         related_name='+',
     )
     
-    title = models.CharField(max_length=70)
+    title = models.CharField(max_length=200)
     description = models.TextField(max_length=1024, blank=True)
     
     date = models.DateField(null=True, blank=True)
@@ -109,7 +109,7 @@ class Album(ClusterableModel):
     is_visible = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(max_length=50, unique=True, blank=True)
+    slug = models.SlugField(max_length=200, unique=True, blank=True)
     
     
     panels = [
@@ -214,7 +214,7 @@ class AlbumImage(Orderable):
     created = models.DateTimeField(auto_now_add=True)
     width = models.IntegerField(default=0)
     height = models.IntegerField(default=0)
-    slug = models.SlugField(max_length=70, default=uuid.uuid4, editable=False)
+    slug = models.SlugField(max_length=200, default=uuid.uuid4, editable=False)
     
     panels = [
         FieldPanel('thumb', widget=ThumbnailWidget),
